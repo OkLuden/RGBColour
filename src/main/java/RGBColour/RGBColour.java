@@ -47,8 +47,19 @@ public class RGBColour {
         return b;
     }
 
-    //Setters
+    public int getRgbRed() {
+        return rgbRed;
+    }
 
+    public int getRgbGreen() {
+        return rgbGreen;
+    }
+
+    public int getRgbBlue() {
+        return rgbBlue;
+    }
+
+    //Setters
 
     public void setR(double r) {
         this.r = r;
@@ -63,6 +74,21 @@ public class RGBColour {
     }
 
     // Methods
+
+    /**
+     * This method throws an exception if an RGB value exceeds 1
+     * or is lower than 0. Gives the user a message stating why there's an error
+     * @param r check R for error
+     * @param g check G for error
+     * @param b check B for error
+     */
+    static void checkValidInput(double r, double g, double b){
+        if(r > 1 || g > 1 || b > 1) {
+            throw new ArithmeticException("An RGB Value is higher than expected.");
+        } else if(r < 0 || g < 0 || b < 0){
+            throw new ArithmeticException("An RGB Value is lower than expected.");
+        }
+    }
 
     /**
      * This method creates a JFrame window containing the user-given
@@ -95,6 +121,8 @@ public class RGBColour {
      * @param b taking the blue input value
      */
     public void convertToRGB(double r, double g, double b) {
+        //Error Checking
+        checkValidInput(r, g, b);
         // Number to be multiplied to convert double to 1-255
         double rgbVal = 255.0;
 

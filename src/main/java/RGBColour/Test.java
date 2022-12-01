@@ -25,9 +25,17 @@ public class Test {
         //Colour 2
         System.out.println("\nColour 2:");
         RGBColour colour2 = new RGBColour(0.988, 0.4745, 0.8196);
-        System.out.println(colour1);
+        System.out.println(colour2);
 
         colour2.convertToRGB(colour2.getR(), colour2.getG(), colour2.getB());
         colour2.createWindow();
+
+        //Colour 3
+        System.out.println("\nColour 3:");
+        RGBColour colour3 = new RGBColour(1, 0, 0.333);
+        System.out.println(colour3);
+
+        colour3.convertToRGB(colour3.getR(), colour3.getG(), colour3.getB());
+        colour3.createWindow();
     }
 }
