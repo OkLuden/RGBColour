@@ -120,7 +120,7 @@ public class RGBColour {
      * @param g taking the green input value
      * @param b taking the blue input value
      */
-    public void convertToRGB(double r, double g, double b) {
+    public int convertToRGB(double r, double g, double b) {
         //Error Checking
         checkValidInput(r, g, b);
         // Number to be multiplied to convert double to 1-255
@@ -136,6 +136,7 @@ public class RGBColour {
         rgbGreen = (int)greenVal;
         rgbBlue = (int)blueVal;
         System.out.println("RGB Values: R: " + rgbRed + ", G: " + rgbGreen + ", B: " + rgbBlue);
+        return rgbRed;
     }
 
     // String representation
@@ -147,5 +148,29 @@ public class RGBColour {
     @Override
     public String toString() {
         return "Red: " + getR() + ", Green: " + getG() + ", Blue: " + getB();
+    }
+
+    //Equivalence
+    /**
+     * @param colour An RGBColour object
+     * @return Returns what we want to print
+     */
+    public boolean equals(RGBColour colour) {
+        boolean isTrue = false;
+        if (this.getRgbRed() == colour.getRgbRed() && this.getRgbGreen() == colour.getRgbGreen() &&
+                this.getRgbBlue() == colour.getRgbBlue()) {
+            isTrue = true;
+        } else if (this.getRgbRed() != colour.getRgbRed() && this.getRgbGreen() != colour.getRgbGreen() &&
+                this.getRgbBlue() != colour.getRgbBlue()) {
+            isTrue = false;
+        }
+        System.out.println("\n**RGB Colour Equality Test**");
+        System.out.println("Colour 1:\n Red: " + colour.getRgbRed() +
+                " Green: " + colour.getRgbGreen() +
+                " Blue: " + colour.getRgbBlue());
+        System.out.println("Colour 2:\n Red: " + this.getRgbRed() +
+                " Green: " + this.getRgbGreen() +
+                " Blue: " + this.getRgbBlue());
+        return isTrue;
     }
 }
